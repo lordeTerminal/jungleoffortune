@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truco Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b2b2b;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .game-board {
+            position: relative;
+            width: 80%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .player-hand {
+            position: absolute;
+            display: flex;
+            gap: 10px;
+        }
+
+        #player1 {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #player2 {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #player3 {
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #player4 {
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .card {
+            width: 60px;
+            height: 90px;
+            background-color: #2980b9;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 90px;
+            font-size: 18px;
+            color: white;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .card-back {
+            background-image: url('./assets/card-back.png');
+            background-size: cover;
+        }
+
+        .turn-up-card, .manilhas {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+        .turn-up-card {
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .manilhas {
+            left: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-board">
+        <div id="player1" class="player-hand">
+            <?php foreach ($player1Hand as $card): ?>
+                <div class="card"><?= $card ?></div>
+            <?php endforeach; ?>
+        </div>
+
+        <div id="player2" class="player-hand">
+            <?php foreach ($player2Hand as $card): ?>
+                <div class="card card-back">?</div>  <!-- Ally's hand -->
+            <?php endforeach; ?>
+        </div>
+
+        <div id="player3" class="player-hand">
+            <?php foreach ($player3Hand as $card): ?>
+                <div class="card card-back">?</div>  <!-- Left opponent -->
+            <?php endforeach; ?>
+        </div>
+
+        <div id="player4" class="player-hand">
+            <?php foreach ($player4Hand as $card): ?>
+                <div class="card card-back">?</div>  <!-- Right opponent -->
+            <?php endforeach; ?>
+        </div>
+
+        <div class="turn-up-card">
+            <h3>Turned Up Card</h3>
+            <div class="card"><?= $turnUpCard ?></div>
+        </div>
+
+        <div class="manilhas">
+            <h3>Manilhas</h3>
+            <?php foreach ($manilhas as $manilha): ?>
+                <div class="card"><?= $manilha ?></div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</body>
+</html>
+

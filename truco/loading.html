@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Game - Loading</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #006400; /* Casino green background */
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background-color: #006400; /* Ensure the background color fills the space */
+        }
+
+        .background img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Contain the image within the container */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the image */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .background img.active {
+            opacity: 1;
+        }
+
+        .hint {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background">
+        <img src="./assets/onca1.png" class="active" alt="Jaguro in Casino">
+        <img src="./assets/onca2.png" alt="Jaguro in Business">
+        <img src="./assets/onca3.png" alt="Jaguro in Jungle">
+        <img src="./assets/onca4.png" alt="Jaguro in Luxury">
+        <img src="./assets/onca5.png" alt="Jaguro in Victory">
+        <img src="./assets/onca6.png" alt="Jaguro in Command">
+        <img src="./assets/onca7.png" alt="Jaguro in Strategy">
+    </div>
+    <div class="hint">"Recarregue seus creditos na Atletica FATEC!"</div>
+
+    <script>
+        const images = document.querySelectorAll('.background img');
+        const hints = [
+            "Não gaste dinheiro que você não pode perder!",
+            "Lembre-se, a casa sempre tem a vantagem.",
+            "Gerencie seu saldo com sabedoria.",
+            "A sorte favorece os preparados.",
+            "Saiba a hora de parar.",
+            "Confie nos seus instintos, mas não ignore as probabilidades.",
+            "A persistência é a chave, mas a prudência é a sua melhor amiga."
+        ];
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+            document.querySelector('.hint').textContent = hints[currentIndex];
+        }
+
+        setInterval(showNextImage, 3000); // Change image every 3 seconds
+    </script>
+
+</body>
+</html>
+

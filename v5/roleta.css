@@ -1,0 +1,434 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Para remover a barra de rolagem */
+}
+.container-cabana {
+    width: 100%;
+    height: 100vh; /* Define a altura da viewport para o container */
+    overflow: hidden; /* Esconde qualquer parte da imagem que transborde */
+    position: relative;
+    background-size: 100%;
+    transition: background-size 10s ease-in-out; /* Suaviza o zoom */
+}
+
+.container-cabana img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    transition: transform 5s ease-in-out; /* Efeito de zoom na imagem */
+
+}
+/* Animação de zoom que será aplicada dinamicamente à imagem */
+.zoom-in {
+    transform: scale(4.5); /* Aplica o zoom na imagem */  
+}
+
+.showGame {
+    position: absolute;
+    top: 50%;
+    left: 62%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    background-color: red;
+    color: #f9f9f9;
+    font-size: larger;
+    padding: 20px;
+    border-radius: 8px;
+    transition: 1s;
+}
+
+.showGame:hover {
+    background-color: rgba(122, 7, 7, 0.89);
+}
+
+.backG {
+    visibility: hidden;
+    background-image: url("imagens/jackpot.webp");
+    background-size: 215%; /* Ajuste automático da imagem */
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente a slot machine */
+    align-items: center; /* Centraliza verticalmente a slot machine */
+}
+
+#spin-button {
+    background-color: red;
+    border-radius: 10px;
+    color: #f9f9f9;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    position: fixed;
+    left: 59.5%; /* Centralizado horizontalmente */
+    top: 85%; /* Ajuste vertical */
+    /* transform: translateX(-50%); Centraliza o botão horizontalmente */
+    /* transform: perspective(800px) rotateX(-10deg); Curvatura */
+    z-index: 10; /* Para garantir que o botão fique acima da roleta */
+}
+.btnExit{
+    position: fixed;
+    top: 85%;
+    left: 43%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    background-color: blue;
+    color: #f9f9f9;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    /* transition: 1s; */
+}
+
+
+.slot-machine {
+    display: flex;
+    background-color: rgba(4, 48, 4, 0.959);
+    justify-content: center;
+    align-items: center;
+    width: 26%;
+    height: 53%;
+    overflow: hidden;
+    position: absolute;
+    left: 38.7%;
+    top: 25%; /* Ajuste para centralizar */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    z-index: 1;
+
+    /* Propriedades para curvatura */
+    border-radius: 50px; /* Curva as bordas */
+    transform: perspective(1000px) rotateX(10deg); /* Aplica uma leve rotação em perspectiva */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6); /* Efeito de profundidade com sombra interna */
+}
+
+.reel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 5px;
+    transform: perspective(800px) rotateX(-10deg); /* Curvatura nos rolos */
+    /* transform: perspective(1000px) rotateX(10deg); Aplica uma leve rotação em perspectiva */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6); /* Efeito de profundidade com sombra interna */
+}
+
+.symbols {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 1.5s ease-out; /* Para uma parada suave */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6); /* Efeito de profundidade com sombra interna */
+}
+
+.spin {
+    animation: spin 0.5s linear infinite; /* Giro contínuo */
+}
+
+@keyframes spin {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.results{
+    display: inline-flex;
+    position: fixed;
+    width: 150px;
+    height: 8%;
+    border-radius: 5px;
+    top: 2%;
+    right: 2%;
+    background-color: rgb(255, 145, 0);
+    color: black;
+    font-weight: bolder;
+    z-index: 20;
+}
+
+
+/* Responsividade: Ajustes para telas menores */
+@media screen and (width: 1480px) {
+    .backG {
+        background-image: url("imagens/jackpot.webp");
+        background-size: 260%; /* Ajuste automático da imagem */
+    }
+    #spin-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        top: 84%; /* Aumenta o espaço entre o botão e a roleta */
+        left: 62%;
+    }
+    .btnExit{
+        font-size: 17px;
+        padding: 6px 12px;
+        top: 80%; /* Coloca o botão um pouco mais abaixo */
+        left: 40%;
+        z-index: 10;
+    }
+
+    .slot-machine {
+        width: 30%; /* Aumenta a largura para telas menores */
+        height: 30%; /* Ajusta a altura da roleta */
+        top: 27%; /* Centraliza mais para cima */
+        left: 37%;
+    }
+
+}
+
+
+/* Responsividade: Ajustes para telas menores */
+@media (max-width: 1300px) {
+    .backG {
+        background-image: url("imagens/jackpot.webp");
+        background-size: 260%; /* Ajuste automático da imagem */
+    }
+    #spin-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        top: 82%; /* Aumenta o espaço entre o botão e a roleta */
+        left: 62%;
+    }
+    .btnExit{
+        font-size: 17px;
+        padding: 6px 12px;
+        top: 80%; /* Coloca o botão um pouco mais abaixo */
+        left: 40%;
+        z-index: 10;
+    }
+
+    .slot-machine {
+        width: 30%; /* Aumenta a largura para telas menores */
+        height: 47%; /* Ajusta a altura da roleta */
+        top: 27%; /* Centraliza mais para cima */
+        left: 37%;
+    }
+
+    .reel {
+        width: 100%; /* Ajusta a largura dos rolos */
+    }
+
+    .symbols {
+        width: 100%;
+    }
+}
+
+/* Responsividade: Ajustes para telas menores */
+@media (max-width: 1187px) {
+    .backG {
+        background-image: url("imagens/jackpot.webp");
+        background-size: 260%; /* Ajuste automático da imagem */
+    }
+    #spin-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        top: 72%; /* Aumenta o espaço entre o botão e a roleta */
+        left: 62%;
+    }
+    .btnExit{
+        font-size: 17px;
+        padding: 6px 12px;
+        top: 70%; /* Coloca o botão um pouco mais abaixo */
+        left: 40%;
+        z-index: 10;
+    }
+
+    .slot-machine {
+        width: 30%; /* Aumenta a largura para telas menores */
+        height: 36%; /* Ajusta a altura da roleta */
+        top: 33%; /* Centraliza mais para cima */
+        left: 37%;
+    }
+
+    .reel {
+        width: 100%; /* Ajusta a largura dos rolos */
+    }
+
+    .symbols {
+        width: 100%;
+    }
+}
+
+/* Responsividade: Ajustes para telas menores */
+@media (max-width: 928px) {
+    
+    .slot-machine {
+        width: 37%; /* Aumenta a largura para telas menores */
+        height: 43%; /* Ajusta a altura da roleta */
+        top: 30%; /* Centraliza mais para cima */
+        left: 34%;
+    }
+    .backG {
+        background-image: url("imagens/jackpot.webp");
+        background-size: 310%; /* Ajuste automático da imagem */
+    }
+    #spin-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        top: 78%; /* Aumenta o espaço entre o botão e a roleta */
+        left: 64%;
+    }
+    .btnExit{
+        font-size: 17px;
+        padding: 6px 12px;
+        top: 77%; /* Coloca o botão um pouco mais abaixo */
+        left: 40%;
+        z-index: 10;
+    }
+}
+/* Responsividade: Ajustes para telas menores */
+@media (max-width: 898px) {
+    .backG {
+        background-image: url("imagens/jackpot.webp");
+        background-size: 310%; /* Ajuste automático da imagem */
+    }
+    #spin-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        top: 78%; /* Aumenta o espaço entre o botão e a roleta */
+        left: 64%;
+    }
+    .btnExit{
+        font-size: 17px;
+        padding: 6px 12px;
+        top: 77%; /* Coloca o botão um pouco mais abaixo */
+        left: 40%;
+        z-index: 10;
+    }
+
+    .slot-machine {
+        width: 38%; /* Aumenta a largura para telas menores */
+        height: 43%; /* Ajusta a altura da roleta */
+        top: 29%; /* Centraliza mais para cima */
+        left: 34%;
+    }
+
+    .reel {
+        width: 100%; /* Ajusta a largura dos rolos */
+    }
+
+    .symbols {
+        width: 100%;
+    }
+}
+
+
+/* Responsividade: Ajustes para telas menores */
+@media (max-width: 768px) {
+    .backG {
+        background-image: url("imagens/jackpot.webp");
+        background-size: 360%; /* Ajuste automático da imagem */
+    }
+    #spin-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        top: 78%; /* Aumenta o espaço entre o botão e a roleta */
+        left: 66%;
+    }
+    .btnExit{
+        font-size: 17px;
+        padding: 6px 12px;
+        top: 77%; /* Coloca o botão um pouco mais abaixo */
+        left: 40%;
+        z-index: 10;
+    }
+
+    .slot-machine {
+        width: 43%; /* Aumenta a largura para telas menores */
+        height: 36%; /* Ajusta a altura da roleta */
+        top: 33%; /* Centraliza mais para cima */
+        left: 32%;
+    }
+
+    .reel {
+        width: 100%; /* Ajusta a largura dos rolos */
+    }
+
+    .symbols {
+        width: 100%;
+    }
+}
+
+/* Ajustes para telas menores como 3273px X 629px */
+@media (max-width: 3273px) and (max-height: 629px) {
+   
+    #spin-button {
+        font-size: 18px; /* Aumenta o tamanho da fonte para ficar legível */
+        padding: 10px 20px; /* Ajusta o padding para maior legibilidade */
+        top: 10%; /* Ajusta a posição do botão */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .btnExit {
+        font-size: 18px; /* Ajusta a fonte do botão de saída */
+        padding: 10px 20px; /* Ajusta o padding */
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .slot-machine {
+        width: 40%; /* Ajusta a largura da slot machine */
+        height: 42%; /* Ajusta a altura para manter a proporção */
+        top: 15%; /* Posiciona mais centralizado */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .reel {
+        width: 100%; /* Ajusta a largura dos rolos */
+
+    }
+
+    .symbols {
+        width: 100%; /* Ajusta a largura dos símbolos */
+    }
+}
+
+@media(max-width: 584px) {
+   
+    #spin-button {
+        font-size: 18px; /* Aumenta o tamanho da fonte para ficar legível */
+        padding: 10px 20px; /* Ajusta o padding para maior legibilidade */
+        top: 68%; /* Ajusta a posição do botão */
+        left: 70%;
+        transform: translateX(-50%);
+    }
+
+    .btnExit {
+        font-size: 18px; /* Ajusta a fonte do botão de saída */
+        padding: 10px 20px; /* Ajusta o padding */
+        top: 68%;
+        left: 40%;
+        transform: translateX(-50%);
+    }
+
+    .slot-machine {
+        width: 43%; /* Ajusta a largura da slot machine */
+        height: 26%; /* Ajusta a altura para manter a proporção */
+        top: 39%; /* Posiciona mais centralizado */
+        left: 53%;
+        transform: translateX(-50%);
+    }
+
+    .reel {
+        width: 100%; 
+
+    }
+
+    .symbols {
+        width: 100%; 
+    }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    
+    <div class="form">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+            <label for="nome">Usuário</label>
+            <input type="text" id="nome" name="nome" required placeholder="Nome">
+    
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required placeholder="Senha">
+
+            <label for="codigo_2fa">Código 2FA</label>
+            <input type="text" id="codigo_2fa" name="codigo_2fa" required placeholder="Código de Dois Fatores">
+
+            <button type="submit" value="login">Entrar</button>
+        </form>
+        <a href="registro.html">Não tem registro? Faça parte dessa aventura!</a>
+    </div>
+
+</body>
+</html>
+

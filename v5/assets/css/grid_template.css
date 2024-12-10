@@ -1,0 +1,76 @@
+@import url('styles_root.css');
+
+@media (orientation: landscape) {
+    body {
+        margin-left: 0;
+		margin-right: 5vw !important;
+		margin-top: 0;
+		margin-bottom: 0;
+    }
+	.wrapper {
+		display: grid;
+		width: 90vw;
+		height: 90vh;
+		grid-template-rows: 10% auto 10%;
+		grid-template-columns: 30% 50% 30%;
+		gap: 0;
+		grid-template-areas: 
+			"header header header"
+			"sidebar content content"
+			"footer footer footer";
+		}
+	#header {
+		grid-area: header;
+	}
+	#content {
+		grid-area: content;
+	}
+	#sidebar {
+		grid-area: sidebar;
+		position: static;
+
+	}
+	#footer {
+		grid-area: footer;
+	}
+}
+
+@media (orientation: portrait) {
+    body {
+        margin-left: 0 !important;
+		margin-right: 0 !important;
+		margin-top: 5vh !important;
+		margin-bottom: 5vh !important;
+    }
+	.wrapper {
+		display: grid;
+		width: 100vw;
+		height: 90vh;
+		grid-template-rows: 20vh auto 10%;
+		grid-template-columns: 10% 90%;
+		gap: 0;
+		grid-template-areas: 
+			"header header"
+			"content content"
+			"footer footer";
+		}
+	#sidebar {
+		grid-area: sidebar;
+		position: static;
+
+	}
+	#header {
+		grid-area: header;
+	}
+	#content {
+		grid-area: content;
+	}
+	#footer {
+		grid-area: footer;
+	}
+	#sidebar {
+		grid-area: sidebar;
+		display: none;
+
+	}
+}

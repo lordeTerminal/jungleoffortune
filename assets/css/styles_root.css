@@ -1,0 +1,49 @@
+@font-face {
+	font-family: "Jockey";
+	src: url(../fonts/JockeyOne-Regular.ttf);
+} 
+:root {
+	--primary_yellow: #FFCB00;
+	--primary_green: #006840;
+	--primary_blue: #302681;
+	--secondary_yellow: rgb(255, 229, 128);
+	--secondary_green: #80B4A0;
+	--secondary_blue: #7e75c4;
+	--txtcolor_dark: #fffcd0;
+	--txtcolor_light: #002c00;
+	--deep_red: #941414;
+	--accent_1: #ffee00;
+	--accent_2: #FF4B00;
+	--saturated_yellow: #fbff00;
+	--saturated_green: #00b61e;
+	--saturated_blue: #2020ff;
+	--dark_yellow: #352b00;
+	--dark_green: #003622;
+	--dark_blue: #120c3d;
+	--background_dark: #131340;
+	--background_red: #2e0a0a;
+	--transparent_background: rgba(255, 229, 128, 0.5);
+	--font_sans: 'Rajdhani',  sans-serif;
+	--font_title: 'Jockey', sans-serif;
+	
+}
+
+
+
+/* bordas douradas */
+.border_gold {
+	border-style: ridge;
+	border-color: gold;
+	border-radius: 5%;
+	border-width: 3px;
+	box-shadow: 0px 4px 16px 4px var(--background_dark);
+	outline: var(--primary_yellow) groove 3px;
+	
+}
+
+.btngreen {
+	font-weight: bold;
+	background-color: var(--primary_green);
+	color: var(--txtcolor_dark);
+
+}

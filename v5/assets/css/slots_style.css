@@ -1,0 +1,60 @@
+@import url("grid_template.css");
+
+.wrapper {
+	background-color: aquamarine;
+}
+.header {
+	background-color: yellow;
+}
+.content {
+	background-color: orangered;
+}
+
+@media (orientation: portrait) {
+/* container grid */
+.game_container {
+	display: grid;
+	min-height: 50vh;
+	width: 100vw;
+	height: 100%;
+	grid-template-rows: 70% 30%;
+	grid-template-columns: 80vw 20vw;
+	grid-template-areas: 
+		"display arm"
+		"wager wager";
+}
+}
+
+@media (orientation: landscape) {
+	/* container grid */
+	.wrapper {
+		grid-template-rows: 5% auto 5%;
+		grid-template-columns: 20% 75% 5%;
+	}
+	.game_container {
+		display: grid;
+		min-height: 300px;
+		width: 100%;
+		height: 100%;
+		grid-template-rows: 70% 30%;
+		grid-template-columns: 80% 20%;
+		grid-template-areas: 
+			"display arm"
+			"wager wager";
+	}
+}
+
+
+#display {
+	grid-area: display;
+	background-color: palegreen;
+}
+
+#arm {
+	grid-area: arm;
+	background-color: black;
+}
+
+#wager {
+	grid-area: wager;
+}

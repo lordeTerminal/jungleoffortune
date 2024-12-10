@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo de Caça Níquel</title>
+    <link rel="stylesheet" href="roleta.css">
+</head>
+<body>  
+
+    <div class="container-cabana">
+        <img src="imagens/cabana-conviteIII.webp" alt="Cabana">
+        <button class="showGame">JOGAR AGORA</button>
+    </div>
+ 
+    <div class="backG">
+        <div class="results">
+            <img style="width: 40px;" src="imagens/moeda.png" alt="moeda">
+            <p>Créditos: </p>   
+               
+        </div>
+
+        <button id="spin-button">Girar</button>
+        <div class="slot-machine">
+            <div class="reel" id="reel1">
+                <div class="symbols"></div>
+            </div>
+            <div class="reel" id="reel2">
+                <div class="symbols"></div>
+            </div>
+            <div class="reel" id="reel3">
+                <div class="symbols"></div>
+            </div>
+        </div>
+        <button class="btnExit">Sair</button>
+    </div>
+    
+    <script src="jackPot.js"></script>
+    <script src="jackPotInvite.js"></script>
+</body>
+</html>

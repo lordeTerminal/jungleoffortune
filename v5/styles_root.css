@@ -1,0 +1,38 @@
+:root {
+	--primary_yellow: #FFCB00;
+	--primary_green: #006840;
+	--primary_blue: #302681;
+	--secondary_yellow: rgb(255, 229, 128);
+	--secondary_green: #80B4A0;
+	--secondary_blue: #7e75c4;
+	--txtcolor_dark: #fffcd0;
+	--txtcolor_light: #002e00;
+	--accent_1: #ffee00;
+	--accent_2: #FF4B00;
+	--saturated_yellow: #fbff00;
+	--saturated_green: #00ca22;
+	--saturated_blue: #2020ff;
+	--dark_yellow: #352b00;
+	--dark_green: #003622;
+	--dark_blue: #120c3d;
+	--background_dark: #131340;
+	--background_red: #2e0a0a;
+	--transparent_background: rgba(255, 229, 128, 0.5);
+	--font_sans: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+/* bordas douradas */
+.border_gold {
+	border-style: ridge;
+	border-color: var(--primary_yellow);
+	border-radius: 0.2cm;
+	border-width: 0.2cm;
+	box-shadow: 0 0.1cm 0.4cm var(--background_dark);
+}
+
+.btngreen {
+	font-weight: bold;
+	background-color: var(--primary_green);
+	color: var(--txtcolor_dark);
+
+}

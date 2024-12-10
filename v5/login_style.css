@@ -1,0 +1,108 @@
+@import url('grid_template.css');
+
+body {
+	font-family: var(--font_sans);
+	background-image: url(./../../imagens/5386360.jpg);
+	background-size: cover;
+}
+@media (orientation: landscape) {
+	.logo {
+		align-items: center;
+		justify-content: left;
+		display: flex;
+		width: 40%;
+	}
+	#logoimg {
+		height: 30%;
+		width: 100%;
+		image-rendering:auto;
+	}
+	.content {
+		flex-direction: row;
+	}
+	.header {
+		background-color: var(--secondary_yellow);
+	}
+	.loginbox {
+		width: fit-content;
+		margin-left: 10%;
+		background-color: var(--transparent_background);
+		padding-left: 10%;
+		padding-right: 10%;
+		padding-top: 30px;
+	}
+	.loginbox input {
+		width: 300px;
+		height: 60px;
+		margin-bottom: 10px;
+		border-width: 0;
+	}
+	#footer {
+		background-color: var(--secondary_green);
+	}
+	.loginbox .btngreen {
+		font-size: 2em;
+
+	}
+}
+
+
+
+@media (orientation: portrait) {
+	.loginbox input {
+		width: 85vw;
+		height: 15vw;
+		margin-bottom: 20px;
+		border-width: 0;
+	}
+	.loginbox .btngreen {
+		font-size: 10vw;
+
+	}
+	.loginbox {
+		margin: auto;
+	}
+	.logo {
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		width: 100%;
+	}
+	#logoimg {
+		height: 20vh;
+		width: max-content;
+		image-rendering:auto;
+	}
+	.loginbox p {
+		background-color: rgba(200, 255, 200, 0.5);
+	}
+}
+
+.logo {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+
+.content {
+	height: 60dvh;
+	width: 100%;
+	display: flex;
+}
+
+.loginbox{
+	display: block;
+
+	padding: none;
+	margin-top: 10%;	
+}
+.loginbox h2 {
+	color: var(--txtcolor_dark);
+	text-shadow: 1px 1px 1px black;
+	font-size: 2em;
+}
+
+.loginbox a {
+	color: blue;
+}
